@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root{
+    --orange: #ff5361;
+}
+
+*{
+    font-family: "Nunito", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+/* ================= BASIC RESET ================= */
+html, body{
+    width: 100%;
+    height: 100%;
+    font-size: 62.5%;
+    background: #fff;
+    overflow-x: hidden;   /* STOP SCROLL COMPLETELY */
+}
+
+
+/* ================= HEADER (SAME AS INDEX) ================= */
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #333;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 9%;
+}
+
+header .logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+header .logo span{
+    color: var(--orange);
+}
+
+header .navbar a{
+    color: #fff;
+    font-size: 2rem;
+    margin: 0 .8rem;
+}
+
+header .navbar a:hover,
+header .navbar a.active{
+    color: var(--orange);
+}
+
+header .icons i{
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 2rem;
+}
+
+header .icons i:hover{
+    color: var(--orange);
+}
+
+/* ================= SEARCH BAR ================= */
+header .search-bar-container{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 2rem;
+    background: #333;
+    border-top: .1rem solid rgba(255,255,255,.2);
+    display: flex;
+    align-items: center;
+    z-index: 1001;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+header .search-bar-container.active{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+header .search-bar-container input{
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.6rem;
+    border-radius: .5rem;
+}
+
+header .search-bar-container label{
+    font-size: 2.5rem;
+    color: #fff;
+    margin-left: 1.5rem;
+    cursor: pointer;
+}
+
+.services-heading{
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 4rem;
+    color: #333;
+    margin-top: 12rem;
+}
+
+.services-heading span{
+    color: var(--orange);
+}
+.sub-title{
+    margin-bottom: 8rem;
+    margin-left: 53rem;
+    margin-top: 2rem; 
+    font-size: 2.8vw;
+    font-weight: 500;
+    color: #333;
+}
+.exclusives{
+    margin-top: -50px;
+    margin-left: 10vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 4vh;
+}
+
+.exclusives div img{
+    width: 250px;
+    height: 180px;          /* FIXED HEIGHT */
+    border-radius: 10px;
+    object-fit: cover;     /* CROPS IMAGE PROPERLY */
+    display: block;
+}
+
+
+.exclusives div{
+    position: relative;
+}
+.exclusives div span{
+    position: absolute;
+    font-size: 3vh;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: #fff;
+}
+
+/*---------------------------------------------TRENDING PLACES-------------------------------------*/
+
+.sub-title-a{
+    margin: 50px 80vh;
+    font-size: 2.8vw;
+    font-weight: 500;
+    color: #333;
+}
+
+.trending{
+    margin-left: 10vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 30px;
+    margin-bottom: 30px;
+}
+
+.trending div img{
+    width: 250px;
+    height: 180px;          /* SAME HEIGHT */
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+}
+
+
+.trending h5{
+    font-size: 3vh;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* ================= MOBILE MEDIA QUERIES ================= */
+
+/* For Tablets and Small Desktops (max-width: 991px) */
+@media (max-width: 991px) {
+    html {
+        font-size: 55%; /* Scales down rem units */
+    }
+
+    header {
+        padding: 2rem;
+    }
+
+    .sub-title, .sub-title-a {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+        font-size: 3rem;
+    }
+}
+
+/* For Mobile Phones (max-width: 768px) */
+@media (max-width: 768px) {
+    #menu-bar {
+        display: block; /* Show the hamburger menu icon */
+        font-size: 3rem;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #333;
+        border-top: .1rem solid rgba(255,255,255,.2);
+        display: none; /* Hidden by default */
+        flex-direction: column;
+    }
+
+    /* This class will be toggled via JavaScript */
+    header .navbar.active {
+        display: flex;
+    }
+
+    header .navbar a {
+        display: block;
+        margin: 1.5rem;
+        padding: 1.5rem;
+        font-size: 2.2rem;
+        background: #444;
+        border-radius: .5rem;
+    }
+
+    .services-heading {
+        margin-top: 10rem;
+        font-size: 3.5rem;
+    }
+
+    .sub-title, .sub-title-a {
+        margin: 3rem 0;
+        font-size: 2.5rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .exclusives, .trending {
+        margin-left: 0;
+        padding: 0 2rem;
+        justify-items: center; /* Centers the cards */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .exclusives div img, .trending div img {
+        width: 100%; /* Image takes full width of its container */
+        max-width: 350px;
+        height: 220px;
+    }
+
+    .exclusives div span {
+        font-size: 2rem;
+    }
+}
+
+/* For Small Phones (max-width: 450px) */
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .exclusives {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+}

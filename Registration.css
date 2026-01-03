@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    font-family: sans-serif;
+    background: rgb(187,187,245);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url("https://newsroom.aaa.com/wp-content/uploads/2023/10/iStock-816320512-1024x453.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.card{
+    width: 350px;
+    height: 500px;
+    box-shadow: 0 0 40px  20px rgba(0,0,0,0.26);
+    perspective: 1000px;
+}
+.inner-box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+.card-front, .card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    padding: 55px;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+}
+.card-back{
+    transform: rotateY(180deg);
+}
+.card h2{
+    font-weight: normal;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.input-box{
+    width: 100%;
+    background: transparent;
+    border: 1px solid #fff;
+    margin: 6px 0;
+    height: 32px;
+    border-radius: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    text-align: center;
+    color: #fff;
+}
+::placeholder{
+    color: #fff;
+    font-size: 14px;
+}
+.submit-btn, .btn{
+    width: 100%;
+    background: transparent;
+    border: 1px solid #fff;
+    margin: 35px 0 10px;
+    height: 32px;
+    font-size: 12px;
+    border-radius: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+}
+.submit-btn{
+    position: relative;
+}
+.submit-btn::after{
+    content: '\27a4';
+    color: #333;
+    line-height: 32px;
+    font-size: 17px;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+}
+.span{
+    font-size: 13px;
+    margin-left: 10px;
+}
+.card, .btn{
+    margin-top: 70px;
+}
+.card a{
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+/* ================= MOBILE MEDIA QUERIES ================= */
+
+@media (max-width: 450px) {
+    .card {
+        width: 90%; /* Card takes up 90% of screen width */
+        max-width: 320px;
+        height: 480px; /* Slightly shorter for small screens */
+    }
+
+    .card-front, .card-back {
+        padding: 40px 30px; /* Reduced padding to give inputs more room */
+    }
+
+    .card h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .submit-btn, .btn {
+        margin: 20px 0 10px; /* Reduced margins to save space */
+    }
+
+    .container {
+        padding: 20px;
+        /* Ensures the background image looks good on mobile portrait */
+        background-position: center; 
+    }
+}
+
+/* Landscape Mode Fix for shorter screens */
+@media (max-height: 550px) {
+    .card {
+        height: 400px;
+        margin-top: 20px;
+    }
+    .card-front, .card-back {
+        padding: 20px;
+    }
+    .submit-btn, .btn {
+        margin: 10px 0;
+    }
+}
